@@ -7,11 +7,10 @@ class Node:
 
 class Solution:
     def printList(self, head):
-        # code here
-        temp = head
+        if not head:
+            return
 
-        while temp:
-            print(temp.data, end=" ")
-            temp = temp.next
-        
-        
+        curr = head
+        while curr:
+            print(curr.data, end=" ")
+            curr = curr.next
