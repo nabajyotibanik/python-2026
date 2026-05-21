@@ -1,23 +1,16 @@
 class Solution:
     def maxSubarraySum(self, arr, k):
         
-        if not arr or len(arr) < k:
-            return 0
-            
-    
-        current_sum = sum(arr[:k])
-        max_sum = current_sum
+        win_sum = sum(arr[0:k])
+
+        maxsum = win_sum
+        n = len(arr)
+
+        for i in range(k, n):
+            win_sum = win_sum + arr[i] - arr[i-k]
+            maxsum = max(maxsum, win_sum)
+
+        return maxsum
         
-        
-        for i in range(k, len(arr)):
-            
-            current_sum += arr[i] - arr[i - k]
-            
-            
-            if current_sum > max_sum:
-                max_sum = current_sum
-                
-        return max_sum
-                
         
         
